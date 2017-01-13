@@ -64,9 +64,28 @@ namespace ExtensionMethod
 
             //string display = seconds.SecondsToString(); // 2 hours 11 mins
             //Console.WriteLine(display);
+
+            string abjad = "abcdefghijklmnopqrstu";
+            Console.Write(abjad.LimitTextLength(1));
         }
     }
-    
+
+    public static class LimitText
+    {
+        public static string LimitTextLength(this string text, int maxLength, bool showEllipsis = true)
+        {
+            if (maxLength < 0)
+                throw new ArgumentOutOfRangeException("maxLength", "Value must not be negative");
+            if (string.IsNullOrWhiteSpace(text))
+                return string.Empty;
+            var n = text.Length;
+            var ellipsis = showEllipsis ? "..." : string.Empty;
+            var minLength = ellipsis.Length;
+            maxLength = Math.Max(minLength, maxLength);
+            return n > maxLength ? text.Substring(0, Math.Min(maxLength - minLength, n)) + ellipsis : text;
+        }
+    }
+
     public static class Time
     {
         public static DateTime NextDayOfWeek(this DateTime dt, DayOfWeek day)
@@ -222,7 +241,7 @@ namespace ExtensionMethod
     {
         public string id = "";
         public string name = "";
-        public decimal salary = 0;   
+        public decimal salary = 0;
     }
 
 }
