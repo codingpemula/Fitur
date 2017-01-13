@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
@@ -65,8 +66,112 @@ namespace ExtensionMethod
             //string display = seconds.SecondsToString(); // 2 hours 11 mins
             //Console.WriteLine(display);
 
-            string abjad = "abcdefghijklmnopqrstu";
-            Console.Write(abjad.LimitTextLength(1));
+            //string abjad = "abcdefghijklmnopqrstu";
+            //Console.Write(abjad.LimitTextLength(1));
+
+            //int? numVotes = "123".ToNullable<int>();
+            //Console.Write(numVotes);
+            //string thisWillNotThrowException = null;
+            //int? nullsAreSafe = thisWillNotThrowException.ToNullable<int>();
+            // Console.Write(thisWillNotThrowException);
+
+            //string s = "(2+5)/3*(1*6)";
+            //Console.Write(s.ValidateArithmeticExpression());
+
+            //DateTime dt1 = new DateTime(2017, 08, 11);
+            //DateTime dt2 = new DateTime(2017, 09, 19);
+            //var monthTotalDiff = Time.GetTotalMonthDiff(dt1, dt2); //dt1.Time.GetMonthDiff(dt2);
+            //Console.WriteLine(monthTotalDiff);
+
+            //DateTime dt1 = new DateTime(2017, 08, 11);
+            //DateTime dt2 = new DateTime(2017, 09, 19);
+            //var monthTotalDiff = Time.GetMonthDiff(dt1, dt2); //dt1.Time.GetMonthDiff(dt2);
+            //Console.WriteLine(monthTotalDiff);
+
+            //var CallMethod = Requw.QueryString.GetValue("method", string.Empty);
+            //var count = Request.QueryString.GetValue("count", 0);
+            //var view_name = Request.Params.GetValue("view", string.Empty);
+            //var entityID = Request.Params.GetValue<Guid>("UUID", Guid.Empty);
+            //string result_string = "hello world!".ToFirstAll(true);
+            //Console.WriteLine (result_string);
+
+            
+        }
+    }
+
+    public static class Param
+    {
+        public static T GetValue<T>(this NameValueCollection collection, string key, T defaultValue)
+        {
+            if (collection != null && collection.Count > 0)
+            {
+                if (!string.IsNullOrEmpty(key) && collection[key] != null)
+                {
+                    var val = collection[key];
+
+                    return (T)Convert.ChangeType(val, typeof(T));
+                }
+            }
+
+            return (T)defaultValue;
+        }
+    }
+
+    public static class Validator
+    {
+        static Regex ArithmeticExpression = new Regex(@"(?x)
+                ^
+                (?> (?<p> \( )* (?>-?\d+(?:\.\d+)?) (?<-p> \) )* )
+                (?>(?:
+                    [-+*/]
+                    (?> (?<p> \( )* (?>-?\d+(?:\.\d+)?) (?<-p> \) )* )
+                )*)
+                (?(p)(?!))
+                $
+            ");
+
+        public static bool ValidateArithmeticExpression(this string expression)
+        {
+            if (string.IsNullOrEmpty(expression))
+                return false;
+            return ArithmeticExpression.IsMatch(expression);
+        }
+    }
+
+    public static class Helper
+    {
+        public static IEnumerable<T> GetDuplicates<T>(this IEnumerable<T> source)
+        {
+            HashSet<T> itemsSeen = new HashSet<T>();
+            HashSet<T> itemsYielded = new HashSet<T>();
+
+            foreach (T item in source)
+            {
+                if (!itemsSeen.Add(item))
+                {
+                    if (itemsYielded.Add(item))
+                    {
+                        yield return item;
+                    }
+                }
+            }
+        }
+    }
+
+    public static class ToNullableStringExtension
+    {
+        public static T? ToNullable<T>(this string p_self) where T : struct
+        {
+            if (p_self != null)
+            {
+                var converter = System.ComponentModel.TypeDescriptor.GetConverter(typeof(T));
+                if (converter.IsValid(p_self))
+                {
+                    return (T)converter.ConvertFromString(p_self);
+                }
+            }
+
+            return null;
         }
     }
 
@@ -88,6 +193,61 @@ namespace ExtensionMethod
 
     public static class Time
     {
+        public static string FormatIf<T>(this T value, string format) where T : struct
+        {
+            return FormatIf(value, null, format, null);
+        }
+
+        public static string FormatIf<T>(this T value, string format, string defaultText) where T : struct
+        {
+            return FormatIf(value, null, format, defaultText);
+        }
+
+        public static string FormatIf<T>(this T value, Func<T, bool> condition, string format, string defaultText) where T : struct
+        {
+            return (condition(value) ? string.Format(format, value) : defaultText);
+        }
+
+        public static int GetMonthDiff(this DateTime dt1, DateTime dt2)
+        {
+            var l = dt1 < dt2 ? dt1 : dt2;
+            var r = dt1 >= dt2 ? dt1 : dt2;
+            return (l.Day == r.Day ? 0 : l.Day > r.Day ? 0 : 1)
+              + (l.Month == r.Month ? 0 : r.Month - l.Month)
+              + (l.Year == r.Year ? 0 : (r.Year - l.Year) * 12);
+        }
+
+        public static double GetTotalMonthDiff(this DateTime dt1, DateTime dt2)
+        {
+            var l = dt1 < dt2 ? dt1 : dt2;
+            var r = dt1 >= dt2 ? dt1 : dt2;
+            var lDfM = DateTime.DaysInMonth(l.Year, l.Month);
+            var rDfM = DateTime.DaysInMonth(r.Year, r.Month);
+
+            var dayFixOne = l.Day == r.Day
+              ? 0d
+              : l.Day > r.Day
+                ? r.Day * 1d / rDfM - l.Day * 1d / lDfM
+                : (r.Day - l.Day) * 1d / rDfM;
+
+            return dayFixOne
+              + (l.Month == r.Month ? 0 : r.Month - l.Month)
+              + (l.Year == r.Year ? 0 : (r.Year - l.Year) * 12);
+        }
+
+        public static bool IsDate(this string input)
+        {
+            if (!string.IsNullOrEmpty(input))
+            {
+                DateTime dt;
+                return (DateTime.TryParse(input, out dt));
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public static DateTime NextDayOfWeek(this DateTime dt, DayOfWeek day)
         {
             var d = new GregorianCalendar().AddDays(dt, -((int)dt.DayOfWeek) + (int)day);
@@ -106,6 +266,20 @@ namespace ExtensionMethod
             var s = TimeSpan.FromSeconds(totalSeconds);
 
             return string.Format("{0} hours {1} mins", (int)s.TotalHours, s.Minutes);
+        }
+
+        public static Decimal timeToDecimal(this string time)
+        {
+            int Hours = Convert.ToInt32(time.Split(':')[0]);
+            decimal Minutes = Convert.ToInt32(time.Split(':')[1]);
+            while (Minutes >= 60)
+            {
+                Minutes = Minutes % 60;
+                Hours++;
+            }
+            //Minutes = Minutes/60;
+            long test = Convert.ToInt32((Minutes / 60) / 10);
+            return Hours + Minutes / 60;
         }
     }
 
@@ -143,23 +317,16 @@ namespace ExtensionMethod
                 throw new ArgumentException(errMsg);
             }
         }
-    }
 
-    public static class Convert
-    {
-        public static bool IsDate(this string input)
+        public static string ToFirstAll(this string input, bool switcher)
         {
-            if (!string.IsNullOrEmpty(input))
-            {
-                DateTime dt;
-                return (DateTime.TryParse(input, out dt));
-            }
-            else
-            {
-                return false;
-            }
+            return new string(input.Split(' ').
+                Select(n => switcher ? (n.ToArray().First().ToString().ToUpper() + n.Substring(1, n.Length - 1)) :
+                    (n.ToArray().First().ToString().ToLower() + n.Substring(1, n.Length - 1))).
+                    Aggregate((a, b) => a + ' ' + b).ToArray()).TrimEnd(' ');
         }
     }
+
 
     public static class Week
     {
@@ -198,7 +365,6 @@ namespace ExtensionMethod
         public static T FindMin<T, TValue>(this IEnumerable<T> list, Func<T, TValue> predicate)
         where TValue : IComparable<TValue>
         {
-
             T result = list.FirstOrDefault();
             if (result != null)
             {

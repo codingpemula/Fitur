@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fitur", "Fitur\Fitur.csproj", "{4E4AC013-BC1A-45B1-8937-928D026E1394}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threading", "Threading\Threading.csproj", "{8A99C5CF-4642-4128-A58E-28ACA9F538F5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionMethod", "ExtensionMethod\ExtensionMethod.csproj", "{A4378D9E-8B6F-47D9-8AD2-CD9B32615E0C}"
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4E4AC013-BC1A-45B1-8937-928D026E1394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E4AC013-BC1A-45B1-8937-928D026E1394}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E4AC013-BC1A-45B1-8937-928D026E1394}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E4AC013-BC1A-45B1-8937-928D026E1394}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8A99C5CF-4642-4128-A58E-28ACA9F538F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8A99C5CF-4642-4128-A58E-28ACA9F538F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A99C5CF-4642-4128-A58E-28ACA9F538F5}.Release|Any CPU.ActiveCfg = Release|Any CPU

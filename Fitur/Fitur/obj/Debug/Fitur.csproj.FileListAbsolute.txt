@@ -1,1 +1,6 @@
 D:\BROWSING\fitur\Fitur\Fitur\bin\Debug\Fitur.exe.config
+C:\Fitur\Fitur\Fitur\bin\Debug\Fitur.exe.config
+C:\Fitur\Fitur\Fitur\bin\Debug\Fitur.exe
+C:\Fitur\Fitur\Fitur\bin\Debug\Fitur.pdb
+C:\Fitur\Fitur\Fitur\obj\Debug\Fitur.exe
+C:\Fitur\Fitur\Fitur\obj\Debug\Fitur.pdb

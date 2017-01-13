@@ -4,3 +4,8 @@ D:\BROWSING\fitur\Fitur\Threading\bin\Debug\Threading.pdb
 D:\BROWSING\fitur\Fitur\Threading\obj\Debug\Threading.csprojResolveAssemblyReference.cache
 D:\BROWSING\fitur\Fitur\Threading\obj\Debug\Threading.exe
 D:\BROWSING\fitur\Fitur\Threading\obj\Debug\Threading.pdb
+C:\Fitur\Fitur\Threading\bin\Debug\Threading.exe.config
+C:\Fitur\Fitur\Threading\bin\Debug\Threading.exe
+C:\Fitur\Fitur\Threading\bin\Debug\Threading.pdb
+C:\Fitur\Fitur\Threading\obj\Debug\Threading.exe
+C:\Fitur\Fitur\Threading\obj\Debug\Threading.pdb
