@@ -95,10 +95,10 @@ namespace ExtensionMethod
             //string result_string = "hello world!".ToFirstAll(true);
             //Console.WriteLine (result_string);
 
-            string value = "abc";
-            bool isnumeric = value.IsNumeric();// Will return false;
-            value = "11";
-            isnumeric = value.IsNumeric();// Will return true;
+            //string value = "abc";
+            //bool isnumeric = value.IsNumeric();// Will return false;
+            //value = "11";
+            //isnumeric = value.IsNumeric();// Will return true;
 
         }
     }
@@ -106,6 +106,17 @@ namespace ExtensionMethod
 
     #region Mara
 
+    /// <summary>
+    /// Create date 16-01-2017
+    /// Create By Mara
+    /// usage 
+    /// string value = "abc";
+    /// bool isnumeric = value.IsNumeric();// Will return false;
+    /// value = "11";
+    /// isnumeric = value.IsNumeric();// Will return true;
+    /// 
+    /// 
+    /// </summary>
     public static class Numerics
     {
         public static bool IsNumeric(this string theValue)
