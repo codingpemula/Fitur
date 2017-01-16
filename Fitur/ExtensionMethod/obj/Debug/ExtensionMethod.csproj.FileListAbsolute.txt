@@ -9,3 +9,4 @@ C:\Fitur\Fitur\ExtensionMethod\bin\Debug\ExtensionMethod.exe
 C:\Fitur\Fitur\ExtensionMethod\bin\Debug\ExtensionMethod.pdb
 C:\Fitur\Fitur\ExtensionMethod\obj\Debug\ExtensionMethod.exe
 C:\Fitur\Fitur\ExtensionMethod\obj\Debug\ExtensionMethod.pdb
+C:\Fitur\Fitur\ExtensionMethod\obj\Debug\ExtensionMethod.csprojResolveAssemblyReference.cache

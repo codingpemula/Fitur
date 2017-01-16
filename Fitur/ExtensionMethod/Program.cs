@@ -95,9 +95,26 @@ namespace ExtensionMethod
             //string result_string = "hello world!".ToFirstAll(true);
             //Console.WriteLine (result_string);
 
-            
+            string value = "abc";
+            bool isnumeric = value.IsNumeric();// Will return false;
+            value = "11";
+            isnumeric = value.IsNumeric();// Will return true;
+
         }
     }
+
+
+    #region Mara
+
+    public static class Numerics
+    {
+        public static bool IsNumeric(this string theValue)
+        {
+            long retNum;
+            return long.TryParse(theValue, System.Globalization.NumberStyles.Integer, System.Globalization.NumberFormatInfo.InvariantInfo, out retNum);
+        }
+    }
+    #endregion
 
     public static class Param
     {
