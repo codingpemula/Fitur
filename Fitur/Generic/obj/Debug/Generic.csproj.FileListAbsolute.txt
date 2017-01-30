@@ -1,0 +1,6 @@
+C:\Fitur\Fitur\Generic\bin\Debug\Generic.exe.config
+C:\Fitur\Fitur\Generic\bin\Debug\Generic.exe
+C:\Fitur\Fitur\Generic\bin\Debug\Generic.pdb
+C:\Fitur\Fitur\Generic\obj\Debug\Generic.csprojResolveAssemblyReference.cache
+C:\Fitur\Fitur\Generic\obj\Debug\Generic.exe
+C:\Fitur\Fitur\Generic\obj\Debug\Generic.pdb

@@ -359,7 +359,6 @@ namespace ExtensionMethod
         }
     }
 
-
     public static class Week
     {
         public static int WeekOfYearISO8601(this DateTime date)
