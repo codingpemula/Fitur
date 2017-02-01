@@ -1,0 +1,6 @@
+C:\Fitur\Fitur\Sanfoundry\bin\Debug\Sanfoundry.exe.config
+C:\Fitur\Fitur\Sanfoundry\bin\Debug\Sanfoundry.exe
+C:\Fitur\Fitur\Sanfoundry\bin\Debug\Sanfoundry.pdb
+C:\Fitur\Fitur\Sanfoundry\obj\Debug\Sanfoundry.csprojResolveAssemblyReference.cache
+C:\Fitur\Fitur\Sanfoundry\obj\Debug\Sanfoundry.exe
+C:\Fitur\Fitur\Sanfoundry\obj\Debug\Sanfoundry.pdb

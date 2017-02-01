@@ -9,3 +9,4 @@ C:\Fitur\Fitur\Threading\bin\Debug\Threading.exe
 C:\Fitur\Fitur\Threading\bin\Debug\Threading.pdb
 C:\Fitur\Fitur\Threading\obj\Debug\Threading.exe
 C:\Fitur\Fitur\Threading\obj\Debug\Threading.pdb
+C:\Fitur\Fitur\Threading\obj\Debug\Threading.csprojResolveAssemblyReference.cache
