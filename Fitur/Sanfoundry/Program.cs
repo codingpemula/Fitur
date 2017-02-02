@@ -11,13 +11,37 @@ namespace Sanfoundry
         static void Main(string[] args)
         {
             Basic b = new Basic();
-            Console.WriteLine(b.IsEvenOrOdd(1));
+            b.CountEnterNumber();
         }
     }
 
-
+    #region Basic
     public class Basic
     {
+
+        public void CountEnterNumber()
+        {
+            Console.Write("Enter The  Number : ");
+            int number = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter The  Limit {0}", number);
+
+            int count =0;
+            int[] temp = new int[number];
+
+            for (int i = 0; i < number; i++)
+            {
+                temp[i] = int.Parse(Console.ReadLine());
+            }
+
+            foreach (var item in temp)
+            {
+                if (item == 1)
+                    count++;
+
+            }
+            Console.WriteLine("Number of 1's in the Entered Number : ");
+            Console.WriteLine(count);
+        }
 
         public string IsEvenOrOdd(int number)
         {
@@ -39,7 +63,7 @@ namespace Sanfoundry
 
             int temp = number1;
             number1 = number2;
-            number2 =  temp;
+            number2 = temp;
 
 
             Console.WriteLine(number1);
@@ -48,6 +72,6 @@ namespace Sanfoundry
         }
     }
 
-
+    #endregion
 
 }
