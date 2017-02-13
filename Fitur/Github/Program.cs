@@ -97,12 +97,10 @@ namespace Github
             Console.Write("Enter Number Factorial : ");
             int number = int.Parse(Console.ReadLine());
             int result = 1;
-            for (int i = number; i >= number; i--)
+            for (int i = number; i <= number && i > 0; i--)
             {
-                Console.Write(i);
-                if (i != number)
-                    Console.Write("*");
-                if (i == number)
+                Console.Write(i + "*");
+                if (i == 1)
                     Console.Write("=");
                 result = result * i;
             }

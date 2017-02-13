@@ -1,0 +1,5 @@
+C:\Fitur\Fitur\Linq\bin\Debug\Linq.exe.config
+C:\Fitur\Fitur\Linq\bin\Debug\Linq.exe
+C:\Fitur\Fitur\Linq\bin\Debug\Linq.pdb
+C:\Fitur\Fitur\Linq\obj\Debug\Linq.exe
+C:\Fitur\Fitur\Linq\obj\Debug\Linq.pdb

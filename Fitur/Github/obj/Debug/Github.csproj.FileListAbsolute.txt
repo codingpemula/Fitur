@@ -3,4 +3,3 @@ C:\Fitur\Fitur\Github\bin\Debug\Github.exe
 C:\Fitur\Fitur\Github\bin\Debug\Github.pdb
 C:\Fitur\Fitur\Github\obj\Debug\Github.exe
 C:\Fitur\Fitur\Github\obj\Debug\Github.pdb
-C:\Fitur\Fitur\Github\obj\Debug\Github.csprojResolveAssemblyReference.cache
