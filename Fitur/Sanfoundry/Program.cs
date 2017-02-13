@@ -19,13 +19,33 @@ namespace Sanfoundry
     public class Basic
     {
 
+        public void PullMoneyInATM()
+        {
+            Console.Write("Enter You PIN = ");
+            int pin = 0;
+           int choice =0;
+            pin = int.Parse(Console.ReadLine());
+            while (true)
+            {
+                Console.Write("Welcome ATM Service");
+                Console.WriteLine("1. Check Balance\n");
+                Console.WriteLine("2. Withdraw Cash\n");
+                Console.WriteLine("3. Deposit Cash\n");
+                Console.WriteLine("4. Quit\n");
+                Console.WriteLine("*********************************************\n\n");
+                Console.WriteLine("Enter your choice: ");
+                choice = int.Parse(Console.ReadLine());
+
+            }
+        }
+
         public void CountEnterNumber()
         {
             Console.Write("Enter The  Number : ");
             int number = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter The  Limit {0}", number);
 
-            int count =0;
+            int count = 0;
             int[] temp = new int[number];
 
             for (int i = 0; i < number; i++)
@@ -37,7 +57,6 @@ namespace Sanfoundry
             {
                 if (item == 1)
                     count++;
-
             }
             Console.WriteLine("Number of 1's in the Entered Number : ");
             Console.WriteLine(count);

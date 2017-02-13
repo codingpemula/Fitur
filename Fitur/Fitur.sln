@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generic", "Generic\Generic.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sanfoundry", "Sanfoundry\Sanfoundry.csproj", "{289B3F3F-C1D1-4B8E-BB3A-3D6C2EAF7E88}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Github", "Github\Github.csproj", "{54EFBE81-7D1D-4A13-B62B-B77E392B390F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{289B3F3F-C1D1-4B8E-BB3A-3D6C2EAF7E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{289B3F3F-C1D1-4B8E-BB3A-3D6C2EAF7E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{289B3F3F-C1D1-4B8E-BB3A-3D6C2EAF7E88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54EFBE81-7D1D-4A13-B62B-B77E392B390F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54EFBE81-7D1D-4A13-B62B-B77E392B390F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54EFBE81-7D1D-4A13-B62B-B77E392B390F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54EFBE81-7D1D-4A13-B62B-B77E392B390F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
